@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Miloš Marinković — Quantitative & Deal Finance</title>
+<meta name="description" content="Financial modeling, valuation, and forecasting projects by Miloš Marinković — CFA II candidate, MSc Finance (HSE), BSc (Bocconi)." />
+
+<!-- ============================================================
+     DEPLOY ON GITHUB PAGES
+     1. Create a repo named  <your-username>.github.io   (served at https://<your-username>.github.io)
+        OR any repo, then Settings → Pages → Source: main / root.
+     2. Put this file at the repo root as  index.html
+     3. Replace every  TODO:  link below with your real URLs.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0E1E33;          /* deep navy — dark sections + headings on light */
+    --ink-2:#16365B;        /* mid navy */
+    --paper:#FBFAF6;        /* warm near-white body */
+    --paper-2:#F1EEE6;      /* card hover / alt surface */
+    --bronze:#9C7B40;       /* accent (matches CV) */
+    --bronze-2:#C2A063;     /* lighter bronze for lines on dark */
+    --slate:#586172;        /* muted text on light */
+    --mist:#8A93A1;         /* lighter muted */
+    --bone:#F4F1E9;         /* text on dark */
+    --bone-dim:rgba(244,241,233,.58);
+    --line-dark:rgba(244,241,233,.14);
+    --line-light:rgba(14,30,51,.12);
+
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+
+    --wrap:1180px;
+    --gut:clamp(1.5rem,5vw,4.5rem);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);background:var(--paper);color:var(--ink);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    line-height:1.65;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--bronze);color:var(--paper)}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+  .mono{font-family:var(--mono)}
+  .eyebrow{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--bronze);font-weight:500;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:absolute;top:0;left:0;right:0;z-index:20;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.6rem var(--gut);
+  }
+  .monogram{
+    font-family:var(--serif);font-weight:500;font-size:1.15rem;color:var(--bone);
+    letter-spacing:.02em;
+  }
+  .topbar nav{display:flex;gap:1.6rem}
+  .topbar nav a{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--bone-dim);transition:color .25s;
+  }
+  .topbar nav a:hover{color:var(--bronze-2)}
+  .topbar nav a:focus-visible{outline:2px solid var(--bronze-2);outline-offset:4px;border-radius:2px}
+  @media(max-width:620px){ .topbar nav{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;background:var(--ink);color:var(--bone);
+    padding:9.5rem 0 6rem;overflow:hidden;
+  }
+  .hero-line{
+    position:absolute;left:0;right:0;bottom:0;width:100%;height:54%;
+    z-index:0;opacity:.9;pointer-events:none;
+  }
+  .hero-line path{
+    fill:none;stroke:var(--bronze);stroke-width:1.4;
+    stroke-linecap:round;stroke-linejoin:round;
+    opacity:.55;
+  }
+  .hero-line .dot{fill:var(--bronze-2)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .eyebrow{margin-bottom:1.8rem}
+  .hero h1{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(2.9rem,8.5vw,6.4rem);line-height:.98;letter-spacing:-.02em;
+    color:#fff;margin-bottom:1.5rem;
+  }
+  .hero .lede{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(1.1rem,2.4vw,1.5rem);line-height:1.45;color:var(--bone-dim);
+    max-width:34ch;margin-bottom:2.4rem;
+  }
+  .creds{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--mist);
+    display:flex;flex-wrap:wrap;gap:.45rem 1rem;margin-bottom:2.8rem;
+  }
+  .creds span{white-space:nowrap}
+  .creds .sep{color:var(--bronze);opacity:.7}
+  .actions{display:flex;flex-wrap:wrap;gap:.8rem}
+  .btn{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+    padding:.7rem 1.2rem;border:1px solid var(--line-dark);border-radius:2px;
+    color:var(--bone);transition:border-color .25s,color .25s,background .25s;
+    display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .btn:hover{border-color:var(--bronze);color:#fff}
+  .btn:focus-visible{outline:2px solid var(--bronze-2);outline-offset:3px}
+  .btn.primary{background:var(--bronze);border-color:var(--bronze);color:var(--ink);font-weight:500}
+  .btn.primary:hover{background:var(--bronze-2);border-color:var(--bronze-2)}
+  .btn .arr{transition:transform .25s}
+  .btn:hover .arr{transform:translate(2px,-2px)}
+
+  /* ---------- section scaffolding ---------- */
+  .section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+  .section-head{
+    display:flex;align-items:baseline;gap:1.2rem;margin-bottom:3rem;
+  }
+  .section-head .eyebrow{flex-shrink:0}
+  .section-head .rule{flex:1;height:1px;background:var(--line-light)}
+  .section-head .count{font-family:var(--mono);font-size:.72rem;color:var(--mist);letter-spacing:.1em}
+
+  /* ---------- featured project ---------- */
+  .feature{
+    background:var(--ink);color:var(--bone);border-radius:6px;
+    padding:clamp(2rem,4vw,3.2rem);margin-bottom:1.4rem;position:relative;overflow:hidden;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,3vw,3rem);align-items:end;
+  }
+  .feature::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--bronze);
+  }
+  .feature .f-cat{margin-bottom:1.4rem}
+  .feature .f-flag{
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink);background:var(--bronze);padding:.25rem .6rem;border-radius:2px;
+    margin-left:.8rem;
+  }
+  .feature h3{
+    font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3.4vw,2.5rem);
+    line-height:1.05;letter-spacing:-.01em;color:#fff;margin-bottom:1.1rem;
+  }
+  .feature p{color:var(--bone-dim);font-size:1.02rem;line-height:1.7;max-width:46ch}
+  .feature .f-side{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
+  .stack{display:flex;flex-wrap:wrap;gap:.4rem}
+  .stack span{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--bone-dim);
+    border:1px solid var(--line-dark);border-radius:2px;padding:.28rem .6rem;
+  }
+  .repo-link{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--bronze-2);display:inline-flex;align-items:center;gap:.45rem;transition:gap .25s,color .25s;
+  }
+  .repo-link .arr{transition:transform .25s}
+  .repo-link:hover{color:#fff}
+  .repo-link:hover .arr{transform:translate(2px,-2px)}
+
+  /* ---------- project grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+  .card{
+    background:var(--paper);border:1px solid var(--line-light);border-radius:6px;
+    padding:clamp(1.6rem,2.6vw,2.2rem);display:flex;flex-direction:column;gap:1.05rem;
+    transition:border-color .3s,transform .3s,background .3s;position:relative;
+  }
+  .card:hover{border-color:var(--bronze);transform:translateY(-3px);background:#fff}
+  .card-top{display:flex;align-items:center;justify-content:space-between}
+  .status{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);
+    display:inline-flex;align-items:center;gap:.4rem;
+  }
+  .status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mist)}
+  .status.live::before{background:#3B6D11}
+  .status.live{color:#3B6D11}
+  .status.wip::before{background:var(--bronze)}
+  .status.wip{color:var(--bronze)}
+  .card h3{
+    font-family:var(--serif);font-weight:400;font-size:1.42rem;line-height:1.12;
+    letter-spacing:-.01em;color:var(--ink);
+  }
+  .card p{color:var(--slate);font-size:.96rem;line-height:1.62;flex:1}
+  .card-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .card .stack span{color:var(--slate);border-color:var(--line-light)}
+  .card .repo-link{color:var(--ink);margin-top:.2rem}
+  .card .repo-link:hover{color:var(--bronze)}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    margin-top:1.4rem;border:1px dashed var(--line-light);border-radius:6px;
+    padding:1.5rem clamp(1.6rem,2.6vw,2.2rem);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    transition:border-color .3s,background .3s;
+  }
+  .cta-band:hover{border-color:var(--bronze);background:var(--paper-2)}
+  .cta-band .txt{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ink)}
+
+  /* ---------- approach strip ---------- */
+  .approach{border-top:1px solid var(--line-light)}
+  .approach .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+  .approach .a-body{font-family:var(--serif);font-weight:300;font-size:clamp(1.25rem,2.6vw,1.75rem);line-height:1.5;color:var(--ink);max-width:30ch}
+  .approach .a-body em{font-style:italic;color:var(--bronze)}
+  .caps{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+  .caps span{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--slate);border:1px solid var(--line-light);border-radius:2px;padding:.32rem .65rem}
+
+  /* ---------- footer ---------- */
+  .footer{background:var(--ink);color:var(--bone);padding:clamp(4.5rem,9vw,7rem) 0 2.5rem}
+  .footer h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,6vw,4rem);line-height:1;letter-spacing:-.02em;color:#fff;margin-bottom:1.6rem}
+  .footer .f-links{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:3.5rem}
+  .footer .meta{
+    border-top:1px solid var(--line-dark);padding-top:1.8rem;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--mist);
+  }
+  .footer .meta .bronze{color:var(--bronze-2)}
+
+  /* ---------- reveal animation (motion-safe only) ---------- */
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+    .reveal.in{opacity:1;transform:none}
+    .hero-line path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.3,.6,.2,1) .35s forwards}
+    .hero-line .dot{opacity:0;animation:pop .6s ease 2.85s forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes pop{to{opacity:1}}
+    .hero-stagger{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+    .hero-stagger.d1{animation-delay:.05s}
+    .hero-stagger.d2{animation-delay:.18s}
+    .hero-stagger.d3{animation-delay:.31s}
+    .hero-stagger.d4{animation-delay:.44s}
+    .hero-stagger.d5{animation-delay:.57s}
+    @keyframes rise{to{opacity:1;transform:none}}
+  }
+
+  @media(max-width:760px){
+    .feature{grid-template-columns:1fr;align-items:start}
+    .feature .f-side{flex-direction:row;flex-wrap:wrap;justify-content:space-between;width:100%;align-items:center}
+    .grid{grid-template-columns:1fr}
+    .approach .wrap{grid-template-columns:1fr}
+  }
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body>
+
+  <!-- ================= TOP BAR ================= -->
+  <header class="topbar">
+    <a href="#top" class="monogram">Miloš&nbsp;Marinković</a>
+    <nav>
+      <a href="#work">Work</a>
+      <!-- TODO: link your CV (drop cv.pdf in the repo, or link your hosted CV) -->
+      <a href="./cv.pdf">CV</a>
+      <!-- TODO: your LinkedIn -->
+      <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TODO: your GitHub -->
+      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <svg class="hero-line" viewBox="0 0 1200 280" preserveAspectRatio="none" aria-hidden="true">
+      <path pathLength="1" d="M0,232 L90,224 L150,238 L210,205 L270,214 L330,182 L398,196 L452,160 L520,170 L585,138 L640,150 L705,120 L765,128 L835,96 L900,108 L965,74 L1025,86 L1090,52 L1150,60 L1200,38" />
+      <circle class="dot" cx="1200" cy="38" r="4.5" />
+    </svg>
+    <div class="wrap">
+      <p class="eyebrow hero-stagger d1">Quantitative &amp; Deal Finance — Belgrade</p>
+      <h1 class="hero-stagger d2">Miloš<br>Marinković</h1>
+      <p class="lede hero-stagger d3">Valuation, forecasting, and risk systems — engineered with the rigor of a model and the clarity of a deal memo.</p>
+      <div class="creds hero-stagger d4">
+        <span>CFA&nbsp;II Candidate</span><span class="sep">/</span>
+        <span>MSc Finance — HSE Moscow</span><span class="sep">/</span>
+        <span>BSc — Bocconi</span>
+      </div>
+      <div class="actions hero-stagger d5">
+        <a href="#work" class="btn primary">Selected work</a>
+        <!-- TODO: CV link -->
+        <a href="./cv.pdf" class="btn">Curriculum vitae <span class="arr">↗</span></a>
+        <!-- TODO: GitHub link -->
+        <a href="https://github.com/your-username" target="_blank" rel="noopener" class="btn">GitHub <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SELECTED WORK ================= -->
+  <main>
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected Work</span>
+        <span class="rule"></span>
+        <span class="count">05 / projects</span>
+      </div>
+
+      <!-- FLAGSHIP -->
+      <article class="feature reveal">
+        <div class="f-main">
+          <p class="f-cat eyebrow" style="color:var(--bronze-2)">Valuation<span class="f-flag">Flagship</span></p>
+          <h3>DCF &amp; LBO Valuation Model</h3>
+          <p>A full three-statement operating model with integrated DCF and LBO analysis, comparable-company benchmarking, and live sensitivity tables across WACC, terminal growth, and leverage — built to the standard a deal team would actually use.</p>
+        </div>
+        <div class="f-side">
+          <div class="stack">
+            <span>Excel / VBA</span><span>Python</span><span>Valuation</span>
+          </div>
+          <!-- TODO: repo URL -->
+          <a href="https://github.com/your-username/dcf-lbo-model" target="_blank" rel="noopener" class="repo-link">View repository <span class="arr">↗</span></a>
+        </div>
+      </article>
+
+      <!-- GRID -->
+      <div class="grid">
+
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="eyebrow">Forecasting</span>
+            <span class="status live">Live</span>
+          </div>
+          <h3>Meridian — Forecasting Engine</h3>
+          <p>A driver-based demand-planning pipeline forecasting a $1.25B+ P&amp;L at 93%+ accuracy, with conformal prediction intervals, automated ETL, and a decision-ready dashboard.</p>
+          <div class="card-foot">
+            <div class="stack"><span>Python</span><span>SQL</span><span>Power BI</span></div>
+            <!-- TODO: repo URL -->
+            <a href="https://github.com/your-username/meridian-forecasting" target="_blank" rel="noopener" class="repo-link">Repo <span class="arr">↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="eyebrow">Credit Risk</span>
+            <span class="status wip">In progress</span>
+          </div>
+          <h3>Credit Portfolio Risk Toolkit</h3>
+          <p>PD/LGD estimation, stress testing, and collateral valuation for loan portfolios — built directly from buy-side due-diligence work on a bank acquisition.</p>
+          <div class="card-foot">
+            <div class="stack"><span>Python</span><span>pandas</span></div>
+            <!-- TODO: repo URL -->
+            <a href="https://github.com/your-username/credit-portfolio-risk" target="_blank" rel="noopener" class="repo-link">Repo <span class="arr">↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="eyebrow">Mergers &amp; Acquisitions</span>
+            <span class="status wip">In progress</span>
+          </div>
+          <h3>M&amp;A Target Screener — GCC &amp; SEA</h3>
+          <p>Automated screening of acquisition targets across Gulf and Southeast Asian markets on EV/EBITDA, P/B, and leverage — producing a ranked shortlist with rationale notes.</p>
+          <div class="card-foot">
+            <div class="stack"><span>Python</span><span>Excel</span></div>
+            <!-- TODO: repo URL -->
+            <a href="https://github.com/your-username/ma-target-screener" target="_blank" rel="noopener" class="repo-link">Repo <span class="arr">↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="eyebrow">Portfolio</span>
+            <span class="status wip">In progress</span>
+          </div>
+          <h3>Portfolio Optimiser</h3>
+          <p>Mean-variance optimisation, efficient-frontier construction, and Sharpe maximisation — developed alongside CFA Level III portfolio-management study.</p>
+          <div class="card-foot">
+            <div class="stack"><span>Python</span><span>NumPy</span></div>
+            <!-- TODO: repo URL -->
+            <a href="https://github.com/your-username/portfolio-optimiser" target="_blank" rel="noopener" class="repo-link">Repo <span class="arr">↗</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- CTA -->
+      <!-- TODO: GitHub profile URL -->
+      <a href="https://github.com/your-username" target="_blank" rel="noopener" class="cta-band reveal">
+        <span class="txt">Every model, notebook, and write-up lives on GitHub.</span>
+        <span class="repo-link" style="color:var(--ink)">View all repositories <span class="arr">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= APPROACH ================= -->
+  <section class="section approach">
+    <div class="wrap">
+      <div class="section-head reveal" style="grid-column:1 / -1">
+        <span class="eyebrow">Approach</span>
+        <span class="rule"></span>
+      </div>
+      <p class="a-body reveal">Every project starts from the same question a partner asks: <em>what is this worth, and how confident are we?</em></p>
+      <div class="reveal">
+        <p style="color:var(--slate);font-size:1.02rem;line-height:1.75;max-width:52ch">
+          I build the analytical layer beneath investment decisions — models that are rigorous enough for an engineer to trust and clear enough for a non-technical stakeholder to act on. The same discipline runs through a valuation, a forecast, and a risk model: defensible assumptions, transparent logic, and an honest read on uncertainty.
+        </p>
+        <div class="caps">
+          <span>Financial Modeling</span><span>DCF / LBO</span><span>Valuation</span><span>Forecasting</span><span>Credit Risk</span><span>Portfolio Management</span><span>Python</span><span>SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="margin-bottom:1.4rem">Get in touch</p>
+      <h2 class="reveal">Let's talk.</h2>
+      <div class="f-links reveal">
+        <a href="mailto:milosh.marinkovic@gmail.com" class="btn">Email <span class="arr">↗</span></a>
+        <!-- TODO: LinkedIn -->
+        <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener" class="btn">LinkedIn <span class="arr">↗</span></a>
+        <!-- TODO: GitHub -->
+        <a href="https://github.com/your-username" target="_blank" rel="noopener" class="btn">GitHub <span class="arr">↗</span></a>
+        <!-- TODO: CV -->
+        <a href="./cv.pdf" class="btn">CV <span class="arr">↗</span></a>
+      </div>
+      <div class="meta reveal">
+        <span>Belgrade, Serbia <span class="bronze">·</span> Open to roles in Dubai &amp; Singapore</span>
+        <span>© 2026 Miloš Marinković</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-reveal — motion-safe; users with reduced motion see everything immediately.
+    (function(){
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('.reveal');
+      if(reduce || !('IntersectionObserver' in window)){
+        els.forEach(function(e){ e.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      },{ threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+      els.forEach(function(e){ io.observe(e); });
+    })();
+  </script>
+
+</body>
+</html>
